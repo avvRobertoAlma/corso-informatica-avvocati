@@ -45,6 +45,60 @@ Il comando come abbiamo visto visualizza a video il contenuto del file di testo.
 
 > **Attenzione!**. Se il file di testo non si trova nella stessa cartella di lavoro, il comando restituirà un errore. Nel qual caso si dovrà indicare il percorso completo del file.
 
+### Redirezione dell'input o dell'output
+
+La redirezione dell'*input* e dell'*output* è una delle funzioni più utili da apprendere quando si intende lavorare con una interfaccia a linea di comando.
+
+**Spiegare che cosa è input e output**
+
+Per eseguire la redirezione del contenuto di un file come *input* di un comando o redirezione dell'*output* di un comando (esempio la lista dei file contenuti in una cartella) si usano degli operatori, denominati **operatori di redirezione**.
+
+| Operatore | Descrizione |
+| --- | --- |
+| `>` | Crea un nuovo file contenente la redirezione dell'output. Se il file esiste viene sovrascritto |
+| `>>` | Aggiunge l'output alla fine del file |
+| `<` | Invia il contenuto del file specificato come standard input.|
+
+Di seguito un esempio di *redirezione dell'output*
+
+![](./static/output_redirection.png)
+
+### L'operatore PIPE
+
+Con l'utilizzo dell'operatore `pipe` lo *standard output* di un comando è redirezionato come *standard input* del comando successivo.
+
+Il metodo per utilizzare l'operatore di `pipe` è quello di apporre una barra verticale (`|`) tra i due comandi.
+
+Il caso più semplice è quello di filtrare una lunga lista di dati.
+
+![](./static/ps_aux.png)
+
+Nella schermata che precede si nota il risultato dell'esecuzione del comando `ps aux` che restituisce in modo leggibile tutti i processi attivi sul sistema. Come potete vedere, si tratta di una lista poco leggibile.
+
+Supponiamo di voler conoscere quale sia il processo corrispondente all'applicazione Telegram Desktop.
+
+Si può digitare il comando 
+
+`ps aux | grep Telegram`
+
+In questo caso, l'utilizzo dell'operatore `pipe` consente di utilizzare l'*output* del primo comando (ossia la lista dei processi) come l'oggetto della ricerca da parte del programma `grep` che, quindi, filtrerà la lista dei processi e restituirà solo quello corrispondente a Telegram Desktop (come da immagine sottostante).
+
+Un altro utilizzo molto frequente dell'operatore di `pipe` è in combinazione con il comando `xargs`. In questo modo si può generare un comando a partire dallo *standard input*.
+
+Ad esempio, si può creare un comando che cancelli tutti i file che soddisfino determinate caratteristiche. 
+
+Nel seguente esempio vogliamo cancellare da una cartella tutti i file di tipo *pdf* (spiegheremo successivamente nel dettaglio il funzionamento dei comandi `find` e `rm`).
+
+![](./static/xargs.png)
+
+Con il comando `find . -name '*.pdf' | xargs rm`
+
+è come se avessimo chiesto:
+
+*trova tutti i file pdf e successivamente cancellali uno per uno*
+
+
+
 ## Lista dei comandi principali
 
 ### Gestione dei file
@@ -166,4 +220,48 @@ Ad esempio: `rmdir pippo` rimuove la cartella `pippo`.
 #### Il comando GREP
 
 Il comando `grep` è uno dei principali comandi dei sistemi UNIX. La sua funzione primaria è quella di ricercare dei file che contengano una determinata stringa (eventualmente anche una espressione regolare) e restituisce il nome del file (e se si tratta di un file di testo anche la riga contenente la stringa oggetto della ricerca).
+
+Una sua ulteriore utilissima funzione è quella di filtrare i risultati dell'esecuzione di un precedente comando.
+
+![](./static/ps_aux.png)
+
+Nella schermata che precede si nota il risultato dell'esecuzione del comando `ps aux` che restituisce in modo leggibile tutti i processi attivi sul sistema. Come potete vedere, si tratta di una lista poco leggibile.
+
+Supponiamo di voler conoscere quale sia il processo corrispondente all'applicazione Telegram Desktop.
+
+Si può digitare il comando `ps aux | grep Telegram`. In questo caso, l'utilizzo dell'operatore `pipe` consente di utilizzare l'*output* del primo comando (ossia la lista dei processi) come l'oggetto della ricerca da parte del programma `grep` che, quindi, filtrerà la lista dei processi e restituirà solo quello corrispondente a Telegram Desktop (come da immagine sottostante).
+
+![](./static/ps_aux_grep.png)
+
+#### Il comando FIND
+
+Il comando `FIND` è un altro comando molto utilizzato per localizzare uno o più file.
+
+Di seguito sono indicate alcune tra le più comune opzioni del programma.
+
+| Opzione | Descrizione |
+|---|---|
+| `-name` | Verranno ricercati solo i file che soddisfino il *pattern* passato come argomento. Es. `find -name pippo.txt`. N.B. l'argomento può essere il nome del file ma anche una espressione regolare. |
+| `-size` | Verranno ricercati solo i file uguali o maggiori della dimensione specificata |
+| `-user` | Verranno ricercati solo i file il cui proprietario sia l'utente specificato |
+
+Di seguito alcuni esempi dell'utilizzo di `find`.
+
+![](./static/find.png)
+
+Il comando come si può agevolmente notare, restituisce di volta in volta la lista dei file rinvenuti.
+
+Si potrebbe utilizzare l'operatore `pipe` per combinare il risultato del comando `find` con il comando `wc` per ottenere semplicemente il numero dei file rinvenuti, come da esempio seguente.
+
+![](./static/find_wc.png)
+
+#### Il comando CAT
+
+Il comando `cat` è utilizzato per stampare a video il contenuto di un file.
+
+![](./static/cat.png)
+
+In questo caso abbiamo digitato `cat a.txt` ed abbiamo ottenuto a video il contenuto del file `a.txt`
+
+> N.B. Ricordare che il file deve essere contenuto all'interno della stessa cartella di lavoro, altrimenti l'istruzione sopra indicata restituirà un errore.
 
