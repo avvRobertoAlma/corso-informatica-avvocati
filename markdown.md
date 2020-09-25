@@ -29,3 +29,37 @@ Nell'immagine che segue vedremo a sinistra la formattazione del testo con le reg
 In *Markdown* si può formattare il testo utilizzando i soli caratteri (`*`,`_`,)
 
 ![](./static/formattazione.png)
+
+### Le liste in Markdown
+
+Con il *Markdown* è molto semplice creare elenchi puntati e numerati (e combinazioni degli stessi).
+
+Si utilizzano i caratteri `-`,`*`,`+` per gli elenchi puntati (corrispondenti ai tag `<ul>`)
+
+![](./static/liste_ul_md.png)
+
+Notare che per avere elementi di differenti livelli è sufficiente utilizzare le tabulazioni sulla tastiera.
+
+Discorso analogo per le liste numerate.
+
+![](./static/liste_li_md.png)
+
+### I Link
+
+La sintassi del link è la seguente:
+
+`[testo del link](url del link)`
+
+Per esempio [questo è il link al sito dello studio legale dell'avv. Roberto Alma](https://kbl-law.com)
+
+### Tabelle
+
+Si utilizzano combinazioni di caratteri `|` e `-`
+
+Questa è una tabella (ne vedremo molte durante il corso)
+
+![](./static/tabelle.png)
+
+## Conclusioni
+
+Come avete avuto modo di vedere il *Markdown* è un semplice linguaggio di *markup* che consente di aggiungere struttura e formattazione ai nostri documenti e che, in ambito legale, si presta a numerosi utilizzi interessanti, come ad esempio per la redazione collaborativa di contratti tramite github.
