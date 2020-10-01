@@ -173,3 +173,66 @@ print('Roberto ha ' + 35 + ' anni')
 print('Roberto ha ' + str(35)  + ' anni')
 ```
 
+Possiamo accedere ai singoli caratteri di una **stringa** utilizzando gli indici.
+
+> In generale, in informatica le sequenze di dati sono rappresentabili come delle sequenze ordinate di contenitori, ognuno dei quali ha un numero che parte da 0. 
+> Utilizzando uno *pseudocodice* possiamo dire che:
+
+*data una sequenza N di contenitori, 
+possiamo accedere al primo elemento del contenitore, utilizzando l'espressione `N[0]`*
+
+```python
+# accede al primo carattere della stringa
+nome = 'Roberto'
+
+# restituisce 'R'
+print(nome[0])
+
+```
+
+Le **stringhe** inoltre, oltre ad avere funzioni specifiche, consentono di utilizzare dei **metodi** sul singolo oggetto **stringa**.
+
+La differenza tra **metodo** e **funzione** può essere definita nel seguente modo:
+
+*la **funzione** è un'operazione a sé stante, il **metodo** è una sequenza di istruzioni che può essere applicata solo a quel determinato oggetto di tipo **stringa***
+
+```python
+nome = 'Roberto'
+# questa è una funzione
+# stampa la lunghezza di qualsiasi sequenza di informazioni
+# in questo caso stampa il numero di caratteri della stringa nome ossia 7
+print(len(nome))
+
+# questo è un metodo
+# può essere applicato solo ad un oggetto stringa come nome
+# restituisce i caratteri della stringa in formato minuscolo
+print(nome.lower())
+
+## altro metodo molto interessante è replace(old, new)
+## restituisce una nuova stringa dove tutte le occorrenze della sottostringa old sono rimpiazzate dalla sottostringa new
+# esempio vogliamo rimuovere tutti i nomi Massimiliano e Roberto dalla stringa e rimpiazzarli con Max e Rob
+text = "Massimiliano e Roberto sono due avvocati. Massimiliano ama Python. Roberto preferisce node"
+text = text.replace('Massimiliano', 'Max')
+text = text.replace('Roberto', 'Rob')
+
+print(text)
+```
+
+*Et Voilà!*
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/string_replace.png)
+
+Per concludere la nostra lezione, indichiamo come poter dinamicamente inserire dati all'interno dello *script*, ossia l'istruzione `prompt(message)`
+
+Attraverso l'istruzione input()` stiamo sostanzialmente chiedendo all'utente di inserire un *input* che può essere costituito da numeri, caratteri o da numeri e caratteri. Di *default* tutto è considerato come se fosse una **stringa**. Vediamo come possiamo utilizzarlo.
+
+```python
+# richiede i dati all'utente
+nome = input('Inserisci il tuo nome:\n ')
+
+# output
+print('Ciao ' + nome + '!')
+```
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/input.png)
+
