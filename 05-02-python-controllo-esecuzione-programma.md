@@ -1,3 +1,5 @@
+
+
 # Controlli di esecuzione del programma
 
 ## Istruzioni condizionali
@@ -142,4 +144,142 @@ Eseguiamo un po' di *debug*:
 4. alla quarta iterazione, la variabile `contatore` è 3. 3 non è minore di 3, dunque il codice non è più eseguito;
 
 > Attenzione, all'errore più classico di tutti: il **ciclo infinito**. Quando si esegue un ciclo, è sempre necessario avere una variabile **contatore**, che va incrementata ad ogni iterazione successiva. Altrimenti, si avrebbe un *ciclo infinito* che lascerebbe il programma in esecuzione, sino al blocco del computer o al suo spegnimento.
+
+#### Il ciclo FOR
+
+Il ciclo **for** consiste nella ripetizione di una istruzione per tutti gli elementi di un oggetto **contenitore** (che può essere una **lista**, una **stringa**, ecc.).
+
+La sintassi è:
+
+*for variabile in contenitore:
+		istruzione*
+
+Facciamo un semplice esempio:
+
+```python
+# introduciamo la funzione range() che a partire da un numero interno genera una sequenza di numeri.
+# es. range(5) -> [0, 1, 2, 3, 4]
+for i in range(5):
+  	print('Ciao!')
+```
+
+Vediamo quante volte stamperà *ciao*
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/for-1.png)
+
+Se volessimo controllare, il valore di `i` ossia dell'**iteratore** (che tiene conto del numero di **iterazioni** eseguite), è sufficiente accedere al valore di `i` all'interno della singola **iterazione**.
+
+```python
+for i in range(5):
+  	# stampo il valore della variabile i
+    print(i)
+  	print('Ciao!')
+```
+
+Ecco i risultati:
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/for-2.png)
+
+Notare che `i` parte da 0 e arriva a 4, ma complessivamente il ciclo è stato eseguito per 5 iterazioni.
+
+Si può interrompere l'esecuzione del **ciclo** utilizzando l'istruzione `break`, tipicamente, mediante una istruzione condizionale.
+
+```python
+for i in range(5):
+	if i == 3:
+    print('Esco dal ciclo!')
+    break
+  print('Ciao')
+```
+
+Quante volte verrà stampato *Ciao*? 
+
+Ragioniamo insieme:
+
+1. alla prima iterazione, `i` = 0, stampa *Ciao*
+2. alla seconda iterazione `i` = 1, stampa *Ciao*
+3. alla terza iterazione `i` = 2, stampa *Ciao*
+4. alla quarta iterazione `i` = 3, la condizione è verificata, stampa *Esco dal ciclo!* e l'esecuzione si interrompe.
+
+*Ciao* viene stampato 3 volte, nonostante il ciclo sia eseguito per 4 volte. Verifichiamo.
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/for3-png.png)
+
+La nostra valutazione è stata corretta!
+
+#### Applicazioni Pratiche
+
+##### Identificazione del mese migliore come fatturato
+
+```python
+## applicazione pratica
+## vediamo il fatturato di tizio per ogni mese dell'anno
+## abbiamo una lista ordinata per mese
+fatturato_globale = [100,150,90,30,15,140,200,124,34,50,23,77]
+mesi = 12
+mese_migliore = 0
+
+for i in range(mesi):
+    if fatturato_globale[i] > fatturato_globale[mese_migliore]:
+        print('Trovato un mese migliore')
+        mese_migliore = i
+
+print(f"Il mese migliore è il mese n. {str(mese_migliore + 1)} (posizione {str(mese_migliore)}), con un fatturato di {fatturato_globale[mese_migliore]}")
+```
+
+Ecco l'*output*
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/fatturato.png)
+
+##### Risposta a domande
+
+```python
+### if, elif, else
+### effettuiamo più verifiche
+
+linguaggio = input('Che linguaggio di programmazione vorresti studiare? ')
+
+if linguaggio.lower() == 'javascript':
+    print('Ottima scelta per il web')
+elif linguaggio.lower() == 'c':
+    print('Ottima scelta per grandi performance')
+elif linguaggio.lower() == 'java':
+    print('Ottimo per lavorare in ambito enterprise')
+elif linguaggio.lower() == 'python':
+    print('Ottimo per la data science')
+else:
+    print('Non ho sufficienti informazioni!')
+```
+
+Ecco l'*output*
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/risposte.png)
+
+##### Test di diritto civile
+
+```python
+## una implementazione divertente
+## test di diritto civile
+risposta = False
+
+while risposta != True:
+                
+    risposta = input('Quale articolo disciplina la responsabilità contrattuale?:')
+    
+    if risposta == '2043':
+        print('Forse ti sei confuso...')
+        print('Riprovaci!')
+    elif risposta == '1218':
+        print('Risposta corretta!')
+        print('30 e lode!')
+        risposta = True
+        break
+    else:
+        print('Mi dispiace, riprovaci...')
+
+```
+
+Ecco l'*output*
+
+![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/test_civile.png)
 
