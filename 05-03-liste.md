@@ -88,7 +88,7 @@ if not found:
 
 Facciamo un test:
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/check_list.png)
+![](static/python/check_list.png)
 
 Ma avremmo potuto utilizzare una sintassi più coincisa ed elegante:
 
@@ -103,7 +103,7 @@ else:
 
 Ed, infatti:
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/check_list2.png)
+![](static/python/check_list2.png)
 
 Per aggiungere elementi alla lista ci sono due possibilità:
 
@@ -173,7 +173,7 @@ Come vediamo, l'elemento in posizione 0 nella variabile `lista` prima era 'Mario
 
 Questo perché `lista` e `nuova_lista` si riferiscono allo stesso oggetto in memoria.
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/change_lista1.png)
+![](static/python/change_lista1.png)
 
 Utilizzando, invece, l'istruzione `list(elements)` verrà generata una nuova lista che non si riferisce più a quella precedente.
 
@@ -188,7 +188,7 @@ print(lista(0))
 
 Come vediamo, la variabile `lista` non è stata minimamente intaccata dalle operazioni su `nuova_lista`.
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/change_lista2.png)
+![](static/python/change_lista2.png)
 
 Infine, illustriamo la **concatenazione** della lista, molto utile per unire due liste.
 
@@ -201,5 +201,179 @@ print(lista3)
 
 Come vediamo ora abbiamo `list3` che è una nuova lista, contenente tutti gli elementi di `lista1` e di `lista2`.
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/change_lista3.png)
+![](static/python/change_lista3.png)
+
+## I Dizionari
+
+Un **Dizionario** è un contenitore che memorizza associazioni tra **chiavi** (*keys*) e **valori** (*values*). Ogni **chiave** è univoca, ma un **valore** può ben essere associato a più **chiavi**.
+
+Il **Dizionario** è utile per rappresentare **entità**. Per esempio, pensiamo ai dati di un avvocato.
+
+| Chiave        | Valore  |
+| ------------- | ------- |
+| Nome          | Roberto |
+| Cognome       | Alma    |
+| Foro          | Roma    |
+| Cassazionista | No      |
+
+Questa **entità** dal punto di vista informatico, può essere rappresentata con il seguente codice:
+
+```python
+# creazione di un dizionario
+avvocato = {
+    "nome":"Roberto",
+    "cognome":"Alma",
+    "Foro":"Roma",
+    "Cassazionista":False
+}
+```
+
+Come potete vedere, il **dizionario** è una particolare **variabile** il cui contenuto è racchiuso tra due parentesi graffe ed è costituito da coppie di:
+
+- **chiavi** - scritte tra doppie virgolette o doppi apostrofi (es. `"nome"`)
+- **valori** - possono essere qualsiasi tipo di dato (stringa, numeri, booleani ecc.)
+
+La **chiave** è separata dal **valore** tramite doppi punti `:` e due coppie sono separate da una virgola `,`.
+
+Per accedere al **valore** associato ad una **chiave**, si utilizza la seguente sintassi:
+
+*dizionario['chiave']*
+
+E, quindi, ad esempio:
+
+```python
+# stampa a video il valore associato alla chiave 'nome'
+# stampa il valore 'Roberto'
+print(avvocato['nome'])
+```
+
+Di seguito, la sintassi per alcune semplici operazioni sui **dizionari**:
+
+| Codice                       | Descrizione                                           |
+| ---------------------------- | ----------------------------------------------------- |
+| `avvocato['nome'] = 'Marco'` | Sostituisce il valore memorizzato nella chiave `nome` |
+| `avvocato.pop('nome')`       | Elimina completamente la coppia `nome`:valore         |
+
+E se volessimo scandire tutto il contenuto di un **dizionario**?
+
+Possiamo utilizzare un **ciclo**:
+
+```python
+for key in avvocato:
+    print(f"{key} : {avvocato[key]}")
+```
+
+Tramite il **ciclo** sopra indicato, **Python** in automatico estrae la **chiave** da ogni coppia contenuta nel **dizionario** (che è quindi considerato un **contenitore iterabile**).
+
+Conosciuta la **chiave**, è agevole accedere al valore tramite la sintassi già illustrata `avvocato[key]`, dove `key`, per ogni iterazione sarà rappresentata dalla stringa corrispondente alla **chiave**.
+
+Vediamo l'*output*.
+
+![](static/python/for-dict.jpg)
+
+Possiamo anche combinare **liste** e **dizionari** per iniziare a rappresentare oggetti più complessi.
+
+#### Applicazioni Pratiche
+
+*Supponiamo di voler realizzare una rubrica dei nostri contatti*
+
+La prima cosa da fare è definire la struttura dati (e di voler utilizzare nome, cognome, email, telefono)
+
+| Chiave   | Valore               |
+| -------- | -------------------- |
+| Nome     | Roberto              |
+| Cognome  | Rossi                |
+| email    | roberto.rossi@pec.it |
+| telefono | 3403400000           |
+
+Dal punto di vista informatico, un elemento della lista potrebbe essere costituito da:
+
+```python
+{
+    "nome":"Roberto",
+    "cognome":"Rossi",
+    "email":"roberto.rossi@pec.it",
+    "telefono":"340340000"
+}
+```
+
+Come possiamo, quindi, avere due o più elementi in una **lista**?
+
+Molto semplice, *abbiamo detto che in una lista, i singoli elementi sono separati da una virgola e racchiusi da due parentesi quadre*.
+
+Per cui, la **lista**, potrebbe essere composta da:
+
+```python
+rubrica = [
+    {
+    	"nome":"Roberto",
+    	"cognome":"Rossi",
+    	"email":"roberto.rossi@pec.it",
+    	"telefono":"340340000"
+	},
+    {
+    	"nome":"Mario",
+    	"cognome":"Rossi",
+    	"email":"Mario.rossi@pec.it",
+    	"telefono":"340340001"
+	}
+]
+```
+
+A questo punto, supponiamo di voler scrivere un programma che effettui le seguenti operazioni:
+
+1. visualizzi gli elementi di una lista (mostrando la **chiave** e il **valore**);
+2. aggiunga un nuovo elemento alla lista;
+3. visualizzi nuovamente tutti gli elementi della lista (mostrando la **chiave** e il **valore**)
+
+```python
+# rubrica stato iniziale
+rubrica = [
+    {
+    	"nome":"Roberto",
+    	"cognome":"Rossi",
+    	"email":"roberto.rossi@pec.it",
+    	"telefono":"340340000"
+	},
+    {
+    	"nome":"Mario",
+    	"cognome":"Rossi",
+    	"email":"Mario.rossi@pec.it",
+    	"telefono":"340340001"
+	}
+]
+
+# I° ciclo, iteriamo la lista, per ottenere i singoli elementi che la compongono:
+for elemento in rubrica:
+    # II° ciclo, iteriamo l'elemento e stampiamo tutte le chiavi valore
+    for key in elemento:
+        print(f"{key} : {elemento[key]}")
+        
+## aggiungiamo un elemento alla lista con il noto metodo .append()
+rubrica.append({
+    	"nome":"Luca",
+    	"cognome":"Verdi",
+    	"email":"luca.verdi@pec.it",
+    	"telefono":"340340003"
+	})
+
+# I° ciclo, iteriamo la lista, per ottenere i singoli elementi che la compongono:
+for elemento in rubrica:
+    # II° ciclo, iteriamo l'elemento e stampiamo tutte le chiavi valore
+    for key in elemento:
+        print(f"{key} : {elemento[key]}")
+
+```
+
+Vediamo l'*output*.
+
+![](/home/roberto/Documenti/progetti/corso-informatica-avvocati/static/python/working_on_dict.jpg)
+
+Tutto sembra essere andato per il meglio!
+
+Abbiamo però visto che nel codice abbiamo duplicato intere porzioni, compromettendo la leggibilità e con il rischio di commettere errori. Ecco perché nella prossima lezione parleremo di **funzioni**.
+
+
+
+
 
