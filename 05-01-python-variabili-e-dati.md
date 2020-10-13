@@ -59,7 +59,7 @@ nome = 'Roberto'
 
 **Attenzione**, se provassimo ad utilizzare una **variabile**, senza averla prima dichiarata ed inizializzata, otterremmo con ogni probabilità un errore.
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/variabile_non_dichiarata.png)
+![](./static/python/variabile_non_dichiarata.png)
 
 In questo caso nel file `errors.py` abbiamo semplicemente inserito:
 
@@ -220,7 +220,7 @@ print(text)
 
 *Et Voilà!*
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/string_replace.png)
+![](./static/python/string_replace.png)
 
 Per concludere la nostra lezione, indichiamo come poter dinamicamente inserire dati all'interno dello *script*, ossia l'istruzione `prompt(message)`
 
@@ -234,5 +234,5 @@ nome = input('Inserisci il tuo nome:\n ')
 print('Ciao ' + nome + '!')
 ```
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/input.png)
+![](./static/python/input.png)
 

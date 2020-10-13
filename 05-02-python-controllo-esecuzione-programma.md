@@ -132,7 +132,7 @@ while contatore < 3:
 
 Vediamo cosa accade, in esecuzione:
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/while-1.png)
+![](./static/python/while-1.png)
 
 Perché è comparso 3 volte Ciao?
 
@@ -165,7 +165,7 @@ for i in range(5):
 
 Vediamo quante volte stamperà *ciao*
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/for-1.png)
+![](./static/python/for-1.png)
 
 Se volessimo controllare, il valore di `i` ossia dell'**iteratore** (che tiene conto del numero di **iterazioni** eseguite), è sufficiente accedere al valore di `i` all'interno della singola **iterazione**.
 
@@ -178,7 +178,7 @@ for i in range(5):
 
 Ecco i risultati:
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/for-2.png)
+![](./static/python/for-2.png)
 
 Notare che `i` parte da 0 e arriva a 4, ma complessivamente il ciclo è stato eseguito per 5 iterazioni.
 
@@ -203,7 +203,7 @@ Ragioniamo insieme:
 
 *Ciao* viene stampato 3 volte, nonostante il ciclo sia eseguito per 4 volte. Verifichiamo.
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/for3-png.png)
+![](./static/python/for3-png.png)
 
 La nostra valutazione è stata corretta!
 
@@ -229,7 +229,7 @@ print(f"Il mese migliore è il mese n. {str(mese_migliore + 1)} (posizione {str(
 
 Ecco l'*output*
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/fatturato.png)
+![](./static/python/fatturato.png)
 
 ##### Risposta a domande
 
@@ -253,7 +253,7 @@ else:
 
 Ecco l'*output*
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/risposte.png)
+![](./static/python/risposte.png)
 
 ##### Test di diritto civile
 
@@ -281,5 +281,5 @@ while risposta != True:
 
 Ecco l'*output*
 
-![](/Users/Roberto/Documents/progetti/corso-informatica-avvocati/static/python/test_civile.png)
+![](./static/python/test_civile.png)
 
