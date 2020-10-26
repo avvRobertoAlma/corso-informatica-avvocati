@@ -56,6 +56,37 @@ Torniamo all'esempio di prima che riproponiamo qui di seguito.
 
 Possiamo notare che il nostro **Titolo 1** (*Hello World*) è, a sua volta, racchiuso da un elemento `<body> </body>` e, a sua volta, da un elemento `<html></html>`. Questo perché l'HTML è, sostanzialmente, come un grande **albero** dove i rami sono degli elementi **contenitori** e le estremità sono composte da **elementi non contenitori** come testi, immagini o caselle di input.
 
+### Attributi
+
+Gli **attributi** forniscono ulteriori informazioni sul contenuto di un elemento HTML. 
+
+Sono inseriti all'interno del **tag** di apertura e sono composti da:
+
+- un **nome**;
+- il simbolo uguale;
+- un **valore** (tra virgolette);
+
+Ad esempio:
+
+```html
+<p id="first-paragraph">
+    Questo è un paragrafo
+</p>
+```
+
+Qui abbiamo utilizzato l'attributo `id` che viene impiegato per assegnare un **riferimento univoco** ad un elemento della pagina. Molto utile ove sia necessario manipolare la pagina con istruzioni *Javascript* o tramite un foglio di stile CSS.
+
+Vediamo quali sono i principali **attributi**
+
+| Attributo | Descrizione                                                  |
+| --------- | ------------------------------------------------------------ |
+| `id`      | Riferimento univoco di un elemento HTML                      |
+| `class`   | Può contenere una o più classi CSS                           |
+| `style`   | Può contenere una o più istruzioni di stile                  |
+| `name`    | Utilizzato all'interno degli elementi di un **form**. Servirà per associare un riferimento ai dati inseriti dall'utente, allo scopo di consentirne l'elaborazione da parte di un server. |
+
+
+
 ### Alcuni tipi di Elementi
 
 | Tag                              | Descrizione                                                  |
@@ -132,6 +163,59 @@ Vediamo un semplice esempio.
 ### I Form
 
 Per concludere la nostra breve panoramica sul linguaggio HTML, parliamo dei form che rappresentano l'elemento **principale** per raccogliere i dati dell'utente.
+
+#### Come funzionano i form? (metodo classico)
+
+1. L'utente inserisce i dati all'interno del form;
+2. Ogni elemento del form ha un suo attributo speciale chiamato `name`. Es. ci potrebbe essere una casella di testo (`<input type="text"/>`) dove l'utente dovrà inserire il suo nome. Probabilmente l'attributo `name` di quell'elemento sarà proprio `nome`. Nel momento in cui l'utente inserirà il valore es. *Roberto*, verrà creata una associazione tra quel particolare attributo `name` e quel particolare valore *Roberto*;
+3. Nel momento in cui si cliccherà sul pulsante *Invia*, i dati relativi a quel form verranno inviati al *server* che, nel nostro caso di esempio, verrà a conoscenza che quel determinato attributo `name` ha come valore *Roberto*;
+4. il server processerà le informazioni utilizzando un linguaggio di programmazione *server-side* (come PHP, Python, Node.js ecc.) ed effettuerà le operazioni desiderate (es. registrerà l'utente all'interno del database);
+5. Verrà alla fine inviata una risposta al *browser* (es. un messaggio che informa l'utente che l'operazione è andata a buon fine, una nuova pagina, ecc.)
+
+#### La struttura di base dei form
+
+Tutti gli elementi che costituiscono un **form** sono delimitati generalmente da un elemento di tipo `<form> </form>`.
+
+Tra gli **attributi** principali del **form** si indicano:
+
+| Attributo | Descrizione                                                  |
+| --------- | ------------------------------------------------------------ |
+| `method`  | Può avere come valore `GET` o `POST`. Solitamente si utilizza `POST` quando devono essere inviati dati complessi (es. file) o rilevanti (es. dati personali come email e/o password) |
+| `action`  | Il suo valore è l'indirizzo della pagina cui dovranno essere inviati i dati. Es. la pagina `/register` per registrare un nuovo utente. |
+
+#### Alcuni degli elementi principali dei form
+
+| Elemento                                                     | Descrizione                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `<input type="text" name="cognome" />`                       | Il classico campo per inserire del testo (in questo caso verrà creata una associazione tra il valore che verrà inserito e il `name` identificato come `cognome`) |
+| `<textarea name="messaggio" cols="20" rows="4">Inserisci il tuo messaggio</textarea>` | L'elemento `<textarea>` viene utilizzato per inserire del testo composto da più righe. Qui verrà creata una associazione tra il `name` identificato come `messaggio` e il valore del nostro messaggio. |
+| `<input type="submit" value="invia" />`                      | Si tratta dell'elemento utilizzato per inviare i dati inseriti al server. Solitamente è rappresentato da un bottone. |
+
+Predisponiamo un semplice esempio:
+
+![](./static/html-7.png)
+
+Come possiamo notare, l'aspetto estetico del nostro **form** è tutt'altro che invitante, ma sul punto interverremo successivamente con il **CSS**.
+
+Vediamo ora altri elementi utili per la creazione di **form**.
+
+| Elemento                                                     | Descrizione                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `<input type="radio" name="consenso-marketing" value="SI" />` <br />`<input type="radio" name="consenso-marketing" value="NO" />` | SI tratta del **radio button** ossia di un elemento che pone di fronte all'utente due o più opzioni da scegliere.<br />In questo caso stiamo simulando una richiesta di consenso per la ricezione di comunicazioni commerciali che può avere due valori possibili: *SI* o *NO*. Notiamo come l'attributo `name` sia però lo stesso nei due elementi `input`. |
+| `<input type="checkbox" name="consenso-marketing" value="yes" />` | Questa è, invece, la **checkbox**. In questo caso, però, se l'utente seleziona la **checkbox**, il valore sarà quello dell'attributo `value` qualora i dati siano inviati al server. |
+| `<select name="comunicazioni"><option value="mail">Email</option><option value="SMS">SMS</option></select>` | Si tratta del menu a tendina, in cui, l'utente potrà scegliere una delle opzioni proposte. Verrà creata una associazione tra il `name` (in questo caso *comunicazioni*) e il `value` della opzione prescelta. |
+
+Strutturiamo ora un determinato *form* per la registrazione ad una newsletter.
+
+![](./static/html-8.png)
+
+Come vedete, abbiamo utilizzato:
+
+- un campo testuale (per ottenere la mail dell'utente);
+- una checkbox per assicurare la presa visione dell'informativa privacy (in relazione alla quale abbiamo predisposto un *hyperlink* al testo completo);
+- un bottone **radio** per far esprimere all'utente in modo chiaro e trasparente la propria scelta in merito alla ricezione delle comunicazioni commerciali.
+
+
 
 ## CSS
 
