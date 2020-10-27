@@ -256,7 +256,116 @@ h1 {
 
 Mettiamo in pratica su **repl**.
 
+![](./static/css-1.png)
 
+Per semplicità, abbiamo inserito le regole di stile all'interno di un tag `<style>` (avremmo anche potuto inserirle all'interno del file `style.css` che è richiamato nella sezione `<head>`).
 
+Altre proprietà che potremmo utilizzare sono:
+
+- `background-color` possiamo decidere di applicarlo a tutta la pagina (utilizzando come selettore il tag `body`) o a singoli elementi.
+- `text-align` che può avere come valori: `left`, `right`, `center`, `justify`
+
+Proseguiamo con il nostro esempio.
+
+Vogliamo che il titolo abbia come sfondo il colore blu, il paragrafo abbia come sfondo il colore verde e sia allineato a destra e la pagina abbia come sfondo un colore grigio chiaro.
+
+![](./static/css-2.png)
+
+Come vedete, abbiamo raggiunto l'obiettivo.
+
+Ma dovrebbe sorgere un dubbio: 
+
+*per quale ragione il paragrafo ha lo sfondo verde, se avevamo indicato lo sfondo grigio chiaro a tutta la pagina?*
+
+La risposta è proprio nella natura del CSS che abbiamo definito come *fogli di stile a cascata*.
+
+In sostanza, è possibile che due differenti **regole di stile** possa essere applicata allo stesso elemento (come nel caso sopra indicato) è importante stabilire quale regola abbia la precedenza.
+
+| Criterio di precedenza | Descrizione                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| *Last Rule*            | Se due **selettori** sono identici e prevedono regole di stile incompatibili fra loro, sarà applicato l'ultimo dei due |
+| *Specificity*          | Se due **selettori** sono diversi, ma prevedono regole di stile incompatibili fra loro, sarà applicato quello più specifico |
+| *Important*            | Se viene inserita la parola `!important` dopo una dichiarazione, questa prevarrà su tutte le altre regole. |
+
+Per comprendere appieno il funzionamento delle regole CSS è fondamentale comprendere quali possano essere i **selettori**.
+
+#### I selettori
+
+Abbiamo finora utilizzato come **selettori** unicamente tag HTML come `<p>` o `<h1>`, ma il CSS ci fornisce molte ulteriori possibilità. Vediamo i principali **selettori**.
+
+| Selettore    | Descrizione                                                  | Esempio                                                      |
+| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| *UNIVERSALE* | Si applica a tutti gli elementi della pagina                 | `* { color:red;}` <br />Applica il colore rosso al testo di qualsiasi elemento della pagina. |
+| *TIPO*       | Si applica all'elemento corrispondente                       | `p { color:red;}`<br />Applica il colore rosso al testo di tutti i paragrafi della pagina, ma non, ad esempio, ai Titoli 1. |
+| *ID*         | Si applica all'elemento il cui attributo `id` coincide con quello del selettore. | `#pippo {color:red;}` <br />Applica il colore rosso al testo dell'elemento che ha come `id` *pippo* |
+| *CLASSE*     | Si applica all'elemento il cui attributo `classe` coincide con quello del selettore. | `.pippo { color:red; }`<br />Applica il colore rosso al testo di tutti gli elementi che hanno come attributo `class` *pippo* |
+
+Per una **lista** di tutte le proprietà disponibili, si consiglia di consultare il *tutorial* di [Tutorial Republic](https://www.tutorialrepublic.com/css-reference/css3-properties.php)
+
+#### Framework CSS
+
+Si tratta di insiemi di regole di stile già predisposti e solitamente open source, ben documentati, che possono essere utilizzati per generare gradevoli *layout* alle nostre pagine, senza dover *reinventare la ruota*.
+
+I più famosi sono [Bootstrap](https://getbootstrap.com/), [Bulma](https://bulma.io), [Semantic UI](https://semantic-ui.com/), etc.
+
+Per fare un esempio, riscriviamo il nostro *form* di registrazione alla *newsletter*, utilizzando BULMA.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  </head>
+  <body>
+   <section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Registrati
+      </h1>
+    </div>
+  </div>
+</section>
+    <section class="section">
+      <form class="form">
+        <div class="field">
+          <label class="label">Resta in contatto con noi:</label>
+          <div class="control">
+            <input class="input is-rounded" name="email" />
+          </div>
+        </div>
+        <div class="field">
+        <label class="checkbox">
+          <input type="checkbox">
+            Ho preso visione della <a href="#">informativa privacy</a>
+        </label>
+        </div>
+        <div class="field">
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="comunicazioni-commerciali">
+            SI
+          </label>
+          <label class="radio">
+            <input type="radio" name="comunicazioni-commerciali">
+            No
+        </label>
+        </div>
+        </div>
+        <div class="field">
+          <input type="submit" class="button is-info" value="Invia" />
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
+```
+
+Ed ecco l'output:
+
+![](./static/bulma.png)
 
 ## Introduzione a JAVASCRIPT
