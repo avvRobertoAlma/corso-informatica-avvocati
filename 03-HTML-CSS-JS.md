@@ -1,6 +1,6 @@
 # Programmare per il WEB
 
-## HTML
+## Basi di HTML
 
 ### Introduzione all'HTML
 
@@ -217,7 +217,46 @@ Come vedete, abbiamo utilizzato:
 
 
 
-## CSS
+## Introduzione al CSS
+
+Il **CSS** (fogli di stile a cascata o *Cascade Stylesheets*) è un linguaggio usato per definire la formattazione di documenti HTML (ma anche XHTML e XML) e, quindi, per conferire maggiore attrattività, ad esempio, alle nostre pagine web.. Le regole per comporre il CSS sono contenute in un insieme di direttive (Recommendations) emanate a partire dal 1996 dal W3C.
+
+L'introduzione del CSS consente una gestione ordinata delle pagine WEB, in quanto nei file `.html` viene definio il contenuto della pagina dal punto di vista semantico e strutturale, nei file `.css`, invece vengono definite tutte le **regole di stile** che incidono sulle modalità di visualizzazione di una pagina. 
+
+### Che cosa sono le regole di stile?
+
+Il **CSS** opera associando delle **regole di stile** agli elementi HTML. Queste regole specificano come i singoli elementi della pagina devono essere visualizzati.
+
+La struttura di una **regola di stile** consiste di:
+
+- un **selettore** che identifica l'elemento o gli elementi ai quali deve essere applicata quella nuova **regola**;
+- una **dichiarazione** che definisce lo stile da applicare agli elementi cui si riferisce il **selettore**;
+
+Vediamo un esempio.
+
+```css
+/* questa regola ha come selettore il tag <p> 
+significa che si applicherà a tutti i paragrafi della pagina
+la dichiarazione è `color:red;`  e comporterà l'applicazione del colore rosso al testo di tutti i paragrafi della pagina */
+p {
+  color: red;
+}
+```
+
+Altro esempio:
+
+```css
+/* questa regola ha come selettore il tag <h1> 
+significa che si applicherà a tutti i Titoli 1 della pagina
+la dichiarazione è `color:yellow;`  e comporterà l'applicazione del colore giallo al testo di tutti i Titoli 1 della pagina */
+h1 {
+  color: yellow;
+}
+```
+
+Mettiamo in pratica su **repl**.
 
 
-## JAVASCRIPT
+
+
+## Introduzione a JAVASCRIPT
