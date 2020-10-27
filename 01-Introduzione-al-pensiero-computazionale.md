@@ -16,7 +16,7 @@ Il **programma** può essere definito, nella sua eccezione più basilare, come u
 
 Pensiamo alle **ricette** di cucina. Non sono forse anch'esse delle *sequenze di istruzioni funzionalmente preordinate al raggiungimento di uno scopo*? Facciamo un semplice esempio.
 
-[fotoRicettaParmigiana]
+![](./static/timballo.png)
 
 Di fatto, per raggiungere il nostro obiettivo (il timballo di melanzane), dobbiamo necessariamente seguire una serie di *step* secondo un ordine preciso.
 
@@ -89,4 +89,64 @@ In **Python**, ossia nel linguaggio di programmazione, forse, più semplice per 
 Ed ecco il nostro primo **algoritmo**.
 
 ## Linguaggi di programmazione
+
+Quanti linguaggi di programmazione esistono?
+
+![](./static/linguaggi.png)
+
+Moltissimi.
+
+La principale distinzione è tra:
+
+- **linguaggi compilati** - ad esempio C, C++. Se si utilizzano questi linguaggi:
+  1. si scrive il **codice sorgente** in un editor, questo codice viene poi controllato per verificare che non ci siano errori e poi viene **compilato**;
+  2. la **compilazione** consiste nella trasformazione di ogni istruzione del programma da **codice sorgente** a linguaggio macchina;
+  3. le istruzioni **compilate**, quindi, saranno eseguite direttamente dal processore, con un notevole beneficio in termini di prestazioni
+- **linguaggi interpretati** - ad esempio Python, PHP, Javascript. Se si utilizzano questi linguaggi:
+  1. si scrive il **codice sorgente** in un editor;
+  2. I linguaggi interpretati sono nati dopo quelli compilati dalla **necessità di sviluppare programmi in grado di essere eseguiti su qualsiasi computer**, indipendentemente dal sistema operativo del dispositivo. Questi linguaggi vengono detti interpretati e la loro "traduzione" richiede un passaggio in più che porta inevitabilmente ad un consumo più alto di memoria ed ad una velocità d'esecuzione ridotta rispetto ad uno compilato. Il vantaggio, però, è una maggiore versatilità, in quanto possono essere utilizzati indipendentemente su qualsiasi sistema, mentre quelli **compilati** hanno bisogno di essere, per l'appunto, **compilati** per ogni specifica famiglia di processori.
+
+## Hello World!
+
+Convenzionalmente, il primo programma che si scrive deve avere come unico scopo quello di visualizzare a video **Hello World!**.
+
+Seguirà una breve panoramica di **foto** che riproducono il **codice sorgente** necessario per visualizzare a video **Hello World** in differenti linguaggi di programmazione.
+
+### Assembly
+
+![](./static/assembly.png)
+
+### C
+
+![](./static/C.png)
+
+### JAVA
+
+![](./static/Java.png)
+
+### Python
+
+![](./static/Python.png)
+
+### Javascript
+
+![](./static/javascript.png)
+
+### Risorse utili per programmare
+
+#### REPL
+
+Si tratta di un editor online per utilizzare i principali linguaggi di programmazione, senza dover installare e/o configurare l'ambiente di sviluppo. 
+
+![](./static/repl1.png)
+
+Come potete vedere nella schermata sottostante, potete scrivere il codice nell'editor posto a sx ed avere l'*output* immediatamente nell'editor di destra.
+
+![](./static/repl2.png)
+
+**Siti contenenti risorse utili**:
+
+- [W3CSchools](https://www.w3schools.com/) - contiene numerossisime risorse utili per imparare HTML, CSS, PHP, SQL, JAVASCRIPT con esercizi e aree di test;
+- [Visual Studio Code](https://code.visualstudio.com/) - Editor sviluppato da Microsoft e rilasciato *open source*. 
+- [Python - Sito ufficiale](https://www.python.org/) - Sito ufficiale del linguaggio di programmazione Python.
 
