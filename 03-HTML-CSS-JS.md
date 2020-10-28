@@ -19,17 +19,17 @@ L'elemento caratteristico dell'HTML è costituito dall'utilizzo dei **tag** o **
 
 Per fare un esempio, il **tag** `<h1>` identifica il **Titolo 1** del nostro documento. Più precisamente, nella pagina sopra indicata, la sintassi corretta è `<h1>Hello World!</h1>`.Il senso è il seguente:
 
-*Tutto ciò che è compreso tra il **tag** di apertura (<h1>) e quello di chiusura (</h1>) è rappresentato dall'elemento **Titolo 1**.* 
+*Tutto ciò che è compreso tra il **tag** di apertura (`<h1>`) e quello di chiusura (`</h1>`) è rappresentato dall'elemento **Titolo 1**.* 
 
-> La sintassi dei **tag** HTML è costituita da `<tag> contenuto </tag>. Ci sono però alcune eccezioni.
+> La sintassi dei **tag** HTML è costituita da `<tag> contenuto </tag>`. Ci sono però alcune eccezioni.
 
 A questo punto, esaminiamo la pagina sopra riportata al fine di estrarre i relativi **tag**.
 
-| Tag             | Descrizione                                                  |
-| --------------- | ------------------------------------------------------------ |
-| <!DOCTYPE html> | Serve semplicemente a comunicare al browser che il file è una pagina HTML redatta secondo lo standard HTML5. |
-| <html>          | È il tag che racchiude tutta la pagina. Volendo, possiamo specificare la lingua della pagina, utilizzando l’attributo `lang="it"` |
-| <head>          | Questo **tag** contiene una serie di informazioni utili per la gestione della pagina. Ad esempio può conterere il titolo che apparirà nei motori di ricerca e sulle etichette del browser (come abbiamo fatto utilizzando il tag <title> ). Solitamente in questa sezione si inseriscono le regole di stile e, a seconda dei casi, anche gli script di *javascript* |
+| Tag               | Descrizione                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| `<!DOCTYPE html>` | Serve semplicemente a comunicare al browser che il file è una pagina HTML redatta secondo lo standard HTML5. |
+| `<html>`          | È il tag che racchiude tutta la pagina. Volendo, possiamo specificare la lingua della pagina, utilizzando l’attributo `lang="it"` |
+| `<head>`          | Questo **tag** contiene una serie di informazioni utili per la gestione della pagina. Ad esempio può conterere il titolo che apparirà nei motori di ricerca e sulle etichette del browser (come abbiamo fatto utilizzando il tag `<title>` ). Solitamente in questa sezione si inseriscono le regole di stile e, a seconda dei casi, anche gli script di *javascript* |
 
 Utilizzando i comuni browser è possibile sempre verificare il codice sorgente HTML di qualsiasi pagina web. Ad esempio, con **chrome** è sufficiente cliccare su un punto qualsiasi della pagina con il tasto destro e selezionare l'opzione: **ispeziona**.
 
@@ -41,12 +41,12 @@ Per fare ciò, è sufficiente accedere agli strumenti per sviluppatori, cliccare
 
 ### Elementi e TAG
 
-Abbiamo, quindi, visto che in una pagina HTML tutti gli elementi sono rappresentati da **tag**. Queste etichette hanno la funzione di descrivere il tipo di elemento che poi sarà rappresentato nel browser. Tuttavia, sarebbe scorretto assegnare ai **tag** un ruolo meramente grafico o estetico. La principale funzione del **tag** è a livello semantico. Assegnare il **tag** <h1> invece del tag <h2> non ha, infatti, esclusivamente un risvolto grafico (che potrebbe essere modificato con il CSS), ma anche e, soprattutto, la funzione di specificare che si tratta di un **Titolo 1** piuttosto che di un **Titolo 2**.
+Abbiamo, quindi, visto che in una pagina HTML tutti gli elementi sono rappresentati da **tag**. Queste etichette hanno la funzione di descrivere il tipo di elemento che poi sarà rappresentato nel browser. Tuttavia, sarebbe scorretto assegnare ai **tag** un ruolo meramente grafico o estetico. La principale funzione del **tag** è a livello semantico. Assegnare il **tag** `<h1>` invece del tag `<h2>` non ha, infatti, esclusivamente un risvolto grafico (che potrebbe essere modificato con il CSS), ma anche e, soprattutto, la funzione di specificare che si tratta di un **Titolo 1** piuttosto che di un **Titolo 2**.
 
 Abbiamo già detto che, generalmente, la sintassi di un elemento HTML è la seguente: `<tag> contenuto </tag>`. In questo caso si parla di elementi **contenitori**. Il contenuto è delimitato, infatti, da:
 
-- un **tag** di apertura (es. <h1>)
-- un **tag** di chiusura (es. </h1>)
+- un **tag** di apertura (es. `<h1>`)
+- un **tag** di chiusura (es. `</h1>`)
 
 Tutto ciò che è compreso tra il **tag** di apertura e quello di chiusura è, infatti, il **contenuto** dell'elemento (es. il contenuto del **Titolo 1**, del **Titolo 2**, del semplice **paragrafo** e così via)
 
@@ -89,14 +89,14 @@ Vediamo quali sono i principali **attributi**
 
 ### Alcuni tipi di Elementi
 
-| Tag                              | Descrizione                                                  |
-| -------------------------------- | ------------------------------------------------------------ |
-| da <h1> a <h6>                   | Sono i Titoli (ovviamente da Titolo 1 a Titolo 6)            |
-| <p>                              | SI tratta del **paragrafo**. Al termine di ogni **paragrafo** si va a capo. Attenzione! Se inserisco due frasi all'interno di un elemento **paragrafo**, non andrò a capo neanche se digiterò il tasto INVIO. Per forzare l'interruzione di riga all'interno di un **paragrafo** si utilizza il **tag** `<br />` (*breakline*) |
-| <b> o più correttamente <strong> | Si tratta del **grassetto** (*bold*) che rappresenta una cd. *strong emphasis* |
-| <em>                             | Si tratta del **corsivo** (anche se più correttamente si riferisce non tanto allo stile, quando a concetti che vanno **enfatizzati**) |
-| <ul> e <ol>                      | Si tratta, rispettivamente, della **lista non ordinata** e della lista **ordinata** |
-| <li>                             | Si tratta del singolo elemento di una **lista ordinata** o di una **lista non ordinata** |
+| Tag                                  | Descrizione                                                  |
+| ------------------------------------ | ------------------------------------------------------------ |
+| da `<h1>` a `<h6>`                   | Sono i Titoli (ovviamente da Titolo 1 a Titolo 6)            |
+| `<p>`                                | SI tratta del **paragrafo**. Al termine di ogni **paragrafo** si va a capo. Attenzione! Se inserisco due frasi all'interno di un elemento **paragrafo**, non andrò a capo neanche se digiterò il tasto INVIO. Per forzare l'interruzione di riga all'interno di un **paragrafo** si utilizza il **tag** `<br />` (*breakline*) |
+| `<b>` o più correttamente `<strong>` | Si tratta del **grassetto** (*bold*) che rappresenta una cd. *strong emphasis* |
+| `<em>`                               | Si tratta del **corsivo** (anche se più correttamente si riferisce non tanto allo stile, quando a concetti che vanno **enfatizzati**) |
+| `<ul>` e `<ol>`                      | Si tratta, rispettivamente, della **lista non ordinata** e della lista **ordinata** |
+| `<li>`                               | Si tratta del singolo elemento di una **lista ordinata** o di una **lista non ordinata** |
 
 Proviamo a scrivere una pagina di esempio in cui ci presentiamo, utilizzando combinazioni di questi elementi.
 
@@ -104,9 +104,9 @@ Proviamo a scrivere una pagina di esempio in cui ci presentiamo, utilizzando com
 
 Commentiamo il codice sopra indicato:
 
-- l'elemento <h1> </h1> racchiude il **Titolo 1** che non è stato modificato;
-- l'elemento <p></p> racchiude del testo in cui abbiamo indicato alcune parole in **grassetto** (tag `<b> </b>`) ed altre in *corsivo* (tag `<em> </em>`);
-- l'ulteriore elemento `<p></p>` racchiude del testo e un elenco puntato (`<ul> </ul>`) con tre elementi (`<li> </li>);
+- l'elemento `<h1> </h1>` racchiude il **Titolo 1** che non è stato modificato;
+- l'elemento `<p></p>` racchiude del testo in cui abbiamo indicato alcune parole in **grassetto** (tag `<b> </b>`) ed altre in *corsivo* (tag `<em> </em>`);
+- l'ulteriore elemento `<p></p>` racchiude del testo e un elenco puntato (`<ul> </ul>`) con tre elementi (`<li> </li>`);
 - infine abbiamo un ultimo elemento `<p></p>`.
 
 A questo punto non resta che fare un po' di pratica!
@@ -369,3 +369,75 @@ Ed ecco l'output:
 ![](./static/bulma.png)
 
 ## Introduzione a JAVASCRIPT
+
+Per concludere la nostra **introduzione** alla programmazione WEB, dedichiamo un po' di spazio anche a **JAVASCRIPT**.
+
+Si tratta di un linguaggio di programmazione vero e proprio, molto flessibile, ed oggi utilizzato per molteplici finalità: 
+
+- creazione di applicazioni desktop (tramite il progetto **Electron.js**);
+- creazione di server web (tramite **Node.js** e i framework collegati come **Express.js**);
+- creazione di applicazioni web (tramite **Angular.js**, **React.js**, **Vue.js**);
+- creazione di applicazioni mobile (tramite **React Native**);
+
+Ma originariamente è nato per aggiungere degli effetti **dinamici** alle pagine WEB (es. comparsa/scomparsa di elementi dalla pagina; cambio di colori in modo dinamico; visualizzazione di alert ecc.).
+
+La prima cosa da comprendere è: 
+
+*Come si può interagire con un elemento della pagina tramite JAVASCRIPT*?
+
+In modo molto semplice, utilizzando gli stessi selettori CSS che abbiamo visto sopra, prediligendo quelli univoci come l'`id`.
+
+Proviamo a scrivere il nostro primo codice Javascript che commenteremo passo passo.
+
+![](./static/javascript-1.png)
+
+Commentiamo il codice
+
+```html
+<script>
+  <!-- tutto ciò che è compreso tra i tag <script> contiene il nostro codice javascript-->
+</script>
+```
+
+A questo punto dobbiamo studiare i seguenti concetti:
+
+- `primoParagrafo` è l'`id` del paragrafo con cui ci interessa interagire;
+- `document.querySelector()` è un metodo Javascript che ci consente di selezionare un elemento della pagina (*rectius* del DOM);
+- .addEventListener() è un metodo Javascript che ci consente di associare un certo comportamento al verificarsi di un determinato evento;
+- `'click'` è l'evento che vogliamo gestire (il *click* del *mouse* sull'elemento che ci interessa);
+- `function(){ alert('Hello')}` è la funzione che sarà eseguita (ossia il blocco di codice) al verificarsi dell'evento 'click'.
+
+Probabilmente qui avrete trovato dei concetti nuovi (metodo, funzione, codice, ecc.). Tutto sarà più chiaro al termine del corso su Python, in quanto tutti i linguaggi di programmazione condividono alla base le stesse macro-logiche.
+
+Ai fini di questa sessione, è unicamente utile rendersi conto di come gli **script** possano interagire con il DOM.
+
+Perché un avvocato dovrebbe avere rudimenti di **Javascript**?
+
+Per tante ragioni. Solitamente il codice javascript è contenuto all'interno di specifici file con estensione `.js` ma non è sempre così. Può accadere che lo script sia strutturato nel seguente modo `<script src="https://kbl-law.com/script.js"></script>`. In questo caso non stiamo facendo altro che caricare del codice javascript formalmente realizzato da una entità esterna, ma che sarà eseguito sulla nostra pagina e potrà provocare dei cambiamenti nel contenuto della pagina o anche delle differenti interazioni con gli utenti:
+
+- potrebbero essere salvati dati nel `localStorage` (un'area del browser dove possono essere salvate delle informazioni);
+- potrebbero essere salvati dei cookie (per un successivo utilizzo da parte di altri server, es. da parte di Facebook per conoscere la provenienza di un utente x e far visualizzare pubblicità personalizzata)
+- potrebbero semplicemente essere trasmessi dati a risorse esterne (es. potrei informare il sito KBL che l'utente x sta compiendo una certa azione sulla mia pagina ecc.)
+
+Per un approfondimento speciale su Javascript consigliamo di seguire i tutorial disponibili sul sito [W3C](https://www.w3schools.com/js/DEFAULT.asp).
+
+Ai fini di questa lezione, ci limiteremo a illustrare solo alcuni altri semplici esempi.
+
+Potremmo semplicemente voler cambiare il colore di un particolare paragrafo nel momento in cui lo script viene eseguito.
+
+![](./static/javascript-2.png)
+
+Cosa è accaduto in questo caso?
+
+- abbiamo due paragrafi: uno dei quali ha un attributo `id` e l'altro no;
+- abbiamo una regola CSS che applica il colore rosso a tutti i paragrafi;
+- abbiamo uno script JS (eseguito al termine del caricamento della pagina) che modifica il colore del solo paragrafo con attributo `id` uguale a *change* in BLUE;
+
+Altro esempio, lasciamo invariata la regola del colore del paragrafo e facciamo modificare il colore di sfondo allo script.
+
+![](./static/javascript-3.png)
+
+Notare che abbiamo utilizzato la proprietà `backgroundColor` che apparentemente differisce dallo standard CSS `background-color`. Semplicemente, Javascript non gestisce il trattino nel nome delle proprietà di un oggetto, per cui occorre utilizzare la cd. sintassi *camelCase*. Semplicemente come "discontinuità", in luogo del trattino si dovrà utilizzare la prima lettera della parola successiva con la lettera maiuscola.
+
+A questo punto, non resta che provare a realizzare alcuni esempi! 
+
