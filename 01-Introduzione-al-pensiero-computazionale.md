@@ -126,7 +126,7 @@ Seguirà una breve panoramica di **foto** che riproducono il **codice sorgente**
 
 ### Python
 
-![](./static/Python.png)
+![](./static/python.png)
 
 ### Javascript
 
