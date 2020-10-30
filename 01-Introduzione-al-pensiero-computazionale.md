@@ -122,7 +122,7 @@ Seguirà una breve panoramica di **foto** che riproducono il **codice sorgente**
 
 ### JAVA
 
-![](./static/Java.png)
+![](./static/JAVA.png)
 
 ### Python
 
