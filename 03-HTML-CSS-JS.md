@@ -506,7 +506,7 @@ function calcolaImpasto(){
   document.querySelector('#sale').innerHTML = sale
   document.querySelector('#lievito').innerHTML = lievito
 }
-
+```
 
 Il codice è estremamente semplice. Ora lo commenteremo riga per riga.
 
@@ -514,6 +514,149 @@ Il codice è estremamente semplice. Ora lo commenteremo riga per riga.
 - `const farina = Number(document.querySelector('#farina').value)` qui stiamo immagazzinando all'interno di una variabile denominata `farina` il valore del campo input che ha l'id *farina*;
 - `const acqua = farina*0.64` stiamo salvando nella variabile acqua, il valore di farina moltiplicato per 0,64 (ossia l'idratazione). Stesso ragionamento per `sale` e `lievito`
 - `document.querySelector('#acqua').innerHTML = acqua` qui abbiamo utilizzato l'istruzione `document.querySelector([element]).innerHTML` per andare a sovrascrivere il contenuto HTML dell'elemento contraddistinto dall'id *acqua*. Stesso ragionamento per `sale` e `lievito`
+
+Et voilà
+
+![](./static/pizza1.png)
+
+
+Proviamo a migliorare la nostra applicazione utilizzando il *framework* BULMA.
+Ricordiamo che per utilizzare il *framework* CSS è semplicemente necessario utilizzare le classi già fornite dal *framework* ed indicate nella documentazione.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- ricetta pizza -->
+    <section class="hero is-info"><div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Calcolatore Pizza
+      </h1>
+    </div>
+  </div>
+    </section>
+    <section class="section">
+      <div class="content">
+         <p>Inserisci la quantità di farina (in grammi) e calcola gli ingredienti</p>
+      </div>
+      <div class="field">
+        <div class="control">
+          <input class="input" type="number" id="farina" />
+        </div>
+      </div>
+      <div class="field">
+        <button class="button is-info" onclick="calcolaImpasto()">calcola impasto</button>
+      </div>
+      <div id="risultato" class="content">
+         <p><b>Acqua: </b><span id="acqua"></span></p>
+        <p><b>Sale: </b><span id="sale"></span></p>
+        <p><b>Lievito: </b><span id="lievito"></span></p>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
 ```
 
+L'aspetto della pizza è decisamente migliorato.
 
+![](./static/pizza2.png)
+
+Facciamo un'ulteriore modifica.
+Inseriamo anche l'idratazione.
+
+Qui il nuovo *html*
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- ricetta pizza -->
+    <section class="hero is-info"><div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Calcolatore Pizza
+      </h1>
+    </div>
+  </div>
+    </section>
+    <section class="section">
+      <div class="content">
+         <p>Compila il form e calcola gli ingredienti</p>
+      </div>
+      <div class="field">
+        <label class="label">Farina</label>
+        <div class="control">
+          <input class="input" required type="number" id="farina" />
+        </div>
+      <div class="field">
+        <label class="label">Idratazione</label>
+         <div class="control">
+          <input class="input" required type="number" id="idratazione" min=50 max=100/>
+        </div>
+      </div>
+      </div>
+      <div class="field">
+        <button class="button is-info" onclick="calcolaImpasto()">calcola impasto</button>
+      </div>
+      <div id="risultato" class="content">
+         <p><b>Acqua: </b><span id="acqua"></span></p>
+        <p><b>Sale: </b><span id="sale"></span></p>
+        <p><b>Lievito: </b><span id="lievito"></span></p>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+Come vedete ora abbiamo due campi *input* uno per la farina e uno per l'idratazione.
+
+![](./static/pizza3.png)
+
+A questo punto dobbiamo solo applicare la modifica anche nel file **Javascript**
+
+```javascript
+function calcolaImpasto(){
+  
+  const farina = Number(document.querySelector('#farina').value)
+  const idratazione = Number(document.querySelector('#idratazione').value)/100
+
+  if (!farina || !idratazione){
+    alert("Per favore inserire tutti gli elementi")
+    return
+  }
+  
+  const acqua = farina*idratazione
+  const sale = farina*0.025
+  const lievito = farina*0.0015
+
+  document.querySelector('#acqua').innerHTML = acqua
+  document.querySelector('#sale').innerHTML = sale
+  document.querySelector('#lievito').innerHTML = lievito
+}
+```
+
+Abbiamo fondamentalmente inserito due istruzioni:
+
+- `const idratazione = Number(document.querySelector('#idratazione').value)/100` ora abbiamo salvato l'idratazione in una variabile `idratazione`
+- e abbiamo inserito un'**istruzione condizionale** per gestire l'ipotesi in cui l'utente non abbia compilato correttamente il *form*
+
+Infatti, se si prova a premere sul bottone prima di aver inserito i parametri di base:
+
+![](./static/popup.png)
