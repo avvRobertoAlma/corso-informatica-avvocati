@@ -441,3 +441,79 @@ Notare che abbiamo utilizzato la proprietà `backgroundColor` che apparentemente
 
 A questo punto, non resta che provare a realizzare alcuni esempi! 
 
+### La ricetta della pizza
+
+Dobbiamo realizzare una piccola applicazione web per calcolare le quantità necessarie per creare una buona pizza.
+
+Utilizzeremo la piattaforma [https://replit.com/](replit) che ci consente di generare velocemente dei progetti *web* perfettamente ordinati.
+
+Il progetto consisterà in un *form* nel quale chiederemo all'utente di inserire la quantità di farina e lo *script* dovrà calcolare in automatico alcuni parametri (acqua, sale, lievito), stampandoli a video.
+
+Secondo le buone logiche di programmazione, il nostro progetto avrà bisogno, quindi,:
+
+- un file **html** che conterrà il *form* e della sezione contenente i risultati (ossia gli *elementi* da un punto di vista strutturale);
+- un file **Javascript** che conterrà la logica del programma e che sarà responsabile di intercettare la richiesta proveniente dall'utente, elaborarla e restituire la risposta.
+
+Vediamo il file *html*:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ricetta Pizza</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- ricetta pizza -->
+    <h2 style="text-align:center;">Ricetta Pizza</h2>
+
+    <p>Inserisci la quantità di farina (in grammi) e calcola gli ingredienti</p>
+
+    <input type="number" id="farina" />
+    <button onclick="calcolaImpasto()">calcola impasto</button>
+
+    <div id="risultato">
+      <p><b>Acqua: </b><span id="acqua"></span></p>
+      <p><b>Sale: </b><span id="sale"></span></p>
+      <p><b>Lievito: </b><span id="lievito"></span></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+```
+Come potete vedere, abbiamo inserito:
+
+- un elemento di tipo **input** (per raccogliere le informazioni inserite dall'utente)
+- un elemento di tipo **button** che all'evento *click* eseguirà una funzione ossia ``calcolaImpasto()``
+- tre elementi di tipo **span**, ciascuno identificato in modo univoco dall'attributo `id` nei quali verranno inseriti i risultati della nostra elaborazione
+- un elemento di tipo **script** che punta direttamente al file `script.js` ossia al file contenente il nostro codice Javascript.
+
+Vediamo il file **Javascript**
+
+```javascript
+function calcolaImpasto(){
+  
+  const farina = Number(document.querySelector('#farina').value)
+  
+  const acqua = farina*0.64
+  const sale = farina*0.025
+  const lievito = farina*0.015
+
+  document.querySelector('#acqua').innerHTML = acqua
+  document.querySelector('#sale').innerHTML = sale
+  document.querySelector('#lievito').innerHTML = lievito
+}
+
+
+Il codice è estremamente semplice. Ora lo commenteremo riga per riga.
+
+- `function calcolaImpasto()` è la dichiarazione di una funzione (ossia di un blocco di codice unitario)
+- `const farina = Number(document.querySelector('#farina').value)` qui stiamo immagazzinando all'interno di una variabile denominata `farina` il valore del campo input che ha l'id *farina*;
+- `const acqua = farina*0.64` stiamo salvando nella variabile acqua, il valore di farina moltiplicato per 0,64 (ossia l'idratazione). Stesso ragionamento per `sale` e `lievito`
+- `document.querySelector('#acqua').innerHTML = acqua` qui abbiamo utilizzato l'istruzione `document.querySelector([element]).innerHTML` per andare a sovrascrivere il contenuto HTML dell'elemento contraddistinto dall'id *acqua*. Stesso ragionamento per `sale` e `lievito`
+```
+
+
